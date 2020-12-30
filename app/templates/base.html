@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />   
+    {% if title %}
+    <title>{{title}}</title>
+    {% else %}
+    <title>{% block title %}{% endblock %}</title>
+    {% endif %}
+    <meta name="robots" content="noindex, nofollow">   
+    <link rel="stylesheet" href="/static/style.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]--> 
+
+  </head>
+  <body>      
+      <nav class="navbar">
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav ml-auto ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/#01">/ 01</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/#02">/ 02</a>
+            </li>    
+            <li class="nav-item">
+              <a class="nav-link" href="/#03">/ 03</a>
+            </li>       
+          </ul>   
+        </div>
+      </nav>
+      
+      <main role="main">        
+        {% block jumbotron %}{% endblock %}      
+        {% block content %}{% endblock %}
+        {% block contact %}{% endblock %}
+      </main>
+      
+      <footer>
+          <div class="container">
+              <p>&copy; {{footer}}</p>
+          </div>
+      </footer>
+
+  </body>  
+</html>
