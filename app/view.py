@@ -1,14 +1,12 @@
-from flask import Flask, request, jsonify, render_template
+from app import app, cache, request, jsonify, render_template
 import requests, sys, json, re
 from config import token_bot, path_bot
 
-app = Flask(__name__)
-
-def write_json(data, filename=f'{path_bot}data.json'):
+def write_json(data, filename=f'{path_bot}/data.json'):
     with open(filename, 'w') as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
-def load_json(filename=f'{path_bot}data.json'):
+def load_json(filename=f'{path_bot}/data.json'):
     with open(filename, 'r', encoding='utf-8') as f:
         return json.load(f)
     return {}
@@ -46,7 +44,3 @@ def index():
 @app.errorhandler(404)
 def page_not_found(e):    
     return render_template("404.html", title = '404', footer = 'Meows!, meows'), 404
-
-#if __name__ == "__main__":
-    # app.run(host='0.0.0.0')
-    # app.run()
